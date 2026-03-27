@@ -12,6 +12,7 @@ combines two datasets and provides both GUI and command-line interfaces for easy
 - [Application/Uses](#applicationuses)
 - [Future Improvements](#future-improvements)
 - [Disclaimer](#disclaimer)
+- [Known issues](#known-issues)
 
 ## Overview
 
@@ -78,3 +79,261 @@ Both datasets should have the following structure:
 ![](https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&dark=auto#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22pRIeWYRSu3OTkmSqJit1%22%3E7VnbbuIwEP0apO4DKyAkwGPLrZVabVXQ7vbRTUyw5NhZx0Do1%2B84ccit3FSSVlUfWuzjmXEyc2YycRrG0AunAvnLB%2B5g2ui0nLBhjBqdTr%2FXgf8K2MZA2zQHMeIK4mgsBWbkFWuwpdEVcXCQE5ScU0n8PGhzxrAtcxgSgm%2FyYgtO87v6yMUlYGYjWkb%2FEEcu9X2ZrRS%2FxcRdJju3W3rFQ4mwBoIlcvgmAxnjhjEUnMt45IVDTJXzEr%2FEepM9q7sLE5jJUxS29Nf62RncTRnhwXXz9Xra85pvWNFQILeJDzZLIvHMR7aabyDODeNmKT0KszYMUeDHnl%2BQEMNmN7GBNaIrbaDRsahUSl0YuWo0QhKBzD1HDmFusv4iknX4RZ7ah70E6gcxpwiVlWzuvRCWsQfOSLdMQIesT4Byl5IYe0OuiEZ3joXEYcabOiBTzD0sxRZEllnOdDVDNinBdpjOG0NPkaazuzOVRhwGOuhnEKBXBQEQJS6DuQ02sQBA8BVz1FIkfwI%2F7pi%2FkiCkeXI1e5jBzxyHAE7GHiL0x54gVxSAZrtXVQj6H5SDCbLgTLl6EdsG9N9K1aSb31g4iKEUSBQfBbdxEMSJ9mZOgh9iq6VkOSkfV7SIUJIgQ4oRU0%2BBiAs7u6lAWeUJe3yNI39yX4WZCyc4Ufeeb7Bo2ijABxUALF90TbWhuuIw%2BCBmTjCSK6EiNg6lQLYknJUL83wCAk34uxtN6i0G3W5VHm9r%2F2Kn1JaUY8BXQqfswYd7JlaYOdeqKVK1mSJIYTsfrLROt2CGQyL%2FqvFPU8%2BetZwaj8KM2GibTBi4IaOkps%2FZtVQtmiV6urVDwsXyeK3MsedYRJNeTWCKJFnn%2FZqJsnkgqHqHR06iWpnQySpkolUwEYdIa2V7s4KhXbu7LcwTQ7FjSoYiju1u%2Bx2065xBuy9Ep8GnopM1gJvMdX3FnuNUPpUsdYvPiKoJZXxJQn0SovQKvWkxuKfSpHf4JaNqjnSraC9cxZv9QSu2GnOBCPQWwzkO5PE3zJlPiSzDV33wHCQc%2BKGl3sLNml9OrEMUel8%2FYn7ncY0F3%2BwbF8lky7TqTWXrmyY10qQ3uEzB71tGvTTpfdOkRpoMLkSTdqtunnzUkdg9d0kggV9HO4En7Ap1BhYdTByR1V9F6uwI%2BsU30ct1BJUcCp19QPwosEP2HAxd3SIP7g2292puxCBTOmf7HabpV6A4hdJvacb4Pw%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E)
 
 ![spam_detection.drawio.drawio.svg](C:\Users\hp\Downloads\spam_detection.drawio.svg)
+
+### Detailed Workflow
+
+#### 1 Data Collection
+
+- Load both datasets from specified paths
+
+- Combine them into a single dataset
+
+#### 2 Data Preprocessing
+
+- Clean text data
+
+- Convert labels to binary (spam=0, ham=1)
+
+- Handle missing values
+
+#### 3 Feature Extraction
+
+- Use TF-IDF (Term Frequency-Inverse Document Frequency)
+
+- Convert text to numerical feature vectors
+
+- Limit to 5000 most important features
+
+#### 4 Model Training
+
+- Split data into training (80%) and testing (20%)
+
+- Train Logistic Regression model
+
+- Save trained model for future use
+
+#### 5 Prediction
+
+- Accept user input
+
+- Transform input using saved feature extractor
+
+- Predict using trained model
+
+- Return result with confidence score
+
+# Application/Uses
+
+#### 1. GUI Application (Recommended)
+
+##### Features:
+
+- User-friendly interface
+
+- Text input area with scroll
+
+- One-click detection
+
+- Sample messages for testing
+
+- Statistics tracking
+
+- Visual result indicators
+
+###### Running it:
+
+``` 
+python main.py
+```
+
+--------
+
+#### 2. Command-Line Interface
+
+##### Features:
+
+- Lightweight and fast
+
+- Sample messages included
+
+- Detailed analysis
+
+- Session statistics
+
+- Batch processing capability
+
+##### Running it:
+
+``` bash
+ python predict.py
+```
+
+---
+
+### 3. Training Only
+
+##### Features:
+
+- Train model from scratch
+
+- View detailed performance metrics
+
+- Save model for later use
+
+###### Running it:
+
+```bash
+ python run_all.py 
+ ```
+
+---
+
+### 4. Complete Setup
+
+#### Features:
+
+- One-command setup
+
+- Automatic package installation
+
+- Model training
+
+- Interface selection
+
+##### Running it:
+
+```bash
+python run_all.py
+```
+
+---
+
+### Sample Use Cases
+
+- Email Filtering
+
+- Automatically flag spam emails
+
+- Protect inbox from unwanted messages
+
+- SMS Filtering
+
+- Identify spam text messages
+
+- Block fraudulent SMS
+
+- Content Moderation
+
+- Filter user-generated content
+
+- Identify spam comments
+
+- Security Awareness
+
+- Train users to identify spam
+
+- Detect phishing attempts
+
+# Future Improvements
+
+### Short-term Enhancements
+
+- Add more sophisticated text preprocessing (stemming, lemmatization)
+
+- Implement cross-validation for better model evaluation
+
+- Add support for multiple languages
+
+- Create a web API for remote predictions
+
+### Medium-term Enhancements
+
+- Experiment with other algorithms (Naive Bayes, SVM, Neural Networks)
+
+- Add real-time email monitoring
+
+- Implement batch processing for multiple messages
+
+- Add email header analysis for better detection
+
+### Long-term Enhancements
+
+- Deep learning models (LSTM, BERT) for better accuracy
+
+- Real-time spam detection API
+
+- Browser extension for email filtering
+
+- Mobile app integration
+
+- Cloud-based deployment
+
+### Performance Improvements
+
+- Optimize TF-IDF feature selection
+
+- Implement incremental learning
+
+- Add model compression for faster predictions
+
+- Implement caching for repeated predictions
+
+# Disclaimer
+
+### Important Notes
+
+#### 1. Accuracy
+
+- The model is trained on historical data and may not detect all spam messages
+
+- Prediction accuracy is approximately 95-98% on test data
+
+- Always use your judgment for important communications
+
+#### 2. Privacy
+
+- No user data is stored or transmitted
+
+- All processing is done locally on your machine
+
+- Messages are not saved after prediction
+
+#### 3. Limitations
+
+- The model may misclassify legitimate messages as spam
+
+- New spam patterns may not be detected
+
+- Language limitations (primarily English)
+
+- Short messages may have lower accuracy
+
+#### 4. Usage Guidelines
+
+- Use as a tool to assist, not replace, human judgment
+
+- Do not rely solely on this system for critical communications
+
+- Regular retraining is recommended for optimal performance
+
+#### 5. Legal
+
+- This software is for educational purposes
+
+- Not intended for commercial use without proper testing
+
+- Users are responsible for compliance with local laws
+
+# Known Issues
+
+##### 1. Unicode Characters: Some special characters may not display correctly in Windows console
+
+- Solution: Use GUI version or ensure UTF-8 encoding
+
+##### 2. Memory Usage: Large datasets may require significant memory
+
+- Solution: Reduce max_features parameter in TF-IDF
+
+##### 3. Training Time: First training may take 1-2 minutes
+
+- Solution: Model is saved after training for faster future use
