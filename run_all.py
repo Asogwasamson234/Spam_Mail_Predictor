@@ -73,7 +73,7 @@ def main():
 
     if choice == '1':
         print("\nLaunching GUI Application...")
-        run_command("python main.py", "Starting GUI")
+        run_command("python GUI.py", "Starting GUI")
     elif choice == '2':
         print("\nLaunching Command-line Interface...")
         run_command("python predict.py", "Starting CLI")
